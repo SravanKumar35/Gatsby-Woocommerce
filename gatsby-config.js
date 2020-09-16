@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
+    title: `Gatsby WooCommerce Rest API`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
   },
@@ -27,8 +27,18 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: '@pasdo501/gatsby-source-woocommerce',
+    options: {
+      api: 'cumulations.local',
+      verbose: true,   
+      https: false,
+      api_keys: {
+        consumer_key: `ck_0b79b24dbead40f181db61b9b0798b1b5601c8d7`,
+        consumer_secret: `cs_d858d2aa6f65a42b775b50b9496c7a789b8a1494`,
+      },
+      fields: ['products', 'products/categories', 'products/attributes'],
+    },
+  },
   ],
 }
